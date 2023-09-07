@@ -32,6 +32,11 @@ app.use('/api/auth', require('./routes/auth'));
 //Rutas EVENTOS endpoints
 app.use('/api/events', require('./routes/events'));
 
+//IMPORTANTE PARA NO TENER PROBLEMAS CON LAS RUTAS DEL FRONT END EN PRODUCCIÓN.
+app.get('*',(req,res)=>{
+    res.sendFile(__dirname + '/public/index.html');
+});
+
 //crear usuarios, login, renew
 //CRUD: Eventos del calendario
 
